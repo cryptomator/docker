@@ -34,7 +34,6 @@ CMD cd /home \
 	&& tar -xzf antkit.tar.gz \
 	&& export JAVA_HOME="/usr/java/latest" \
 	&& ant rpm \
-	&& ls -laR antbuild/bundles \
 	&& curl -T antbuild/bundles/cryptomator-*.rpm -ucryptobot:${BINTRAY_API_KEY} \
 		-H "X-Bintray-Package:cryptomator" \
 		-H "X-Bintray-Version:${CRYPTOMATOR_VERSION}" \
