@@ -31,7 +31,7 @@ RUN cd /tmp \
 	&& rm ant.tar.gz \
 	&& ln -s /usr/local/ant/bin/ant /usr/local/bin/ant
 
-ENV CRYPTOMATOR_VERSION=1.0.5 \
+ENV CRYPTOMATOR_VERSION=1.1.0 \
 	BINTRAY_API_KEY=toBeSpecifiedWhenRunningThisContainer
 
 # Build and upload DEB package
