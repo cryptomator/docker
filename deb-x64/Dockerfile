@@ -31,8 +31,9 @@ RUN cd /tmp \
 	&& rm ant.tar.gz \
 	&& ln -s /usr/local/ant/bin/ant /usr/local/bin/ant
 
-ENV CRYPTOMATOR_VERSION=1.1.1 \
-	BINTRAY_API_KEY=toBeSpecifiedWhenRunningThisContainer
+ENV CRYPTOMATOR_VERSION=1.1.2 \
+	BINTRAY_API_KEY=toBeSpecifiedWhenRunningThisContainer \
+	GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
 # Build and upload DEB package
 CMD cd /home \
@@ -47,4 +48,5 @@ CMD cd /home \
 		-H "X-Bintray-Debian-Distribution:wheezy" \
 		-H "X-Bintray-Debian-Component:contrib" \
 		-H "X-Bintray-Debian-Architecture:amd64" \
+		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
 		https://api.bintray.com/content/cryptomator/cryptomator-deb/cryptomator-${CRYPTOMATOR_VERSION}-amd64.deb

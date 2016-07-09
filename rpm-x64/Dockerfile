@@ -31,8 +31,9 @@ RUN cd /tmp \
 	&& rm ant.tar.gz \
 	&& ln -s /usr/local/ant/bin/ant /usr/local/bin/ant
 
-ENV CRYPTOMATOR_VERSION=1.1.1 \
-	BINTRAY_API_KEY=toBeSpecifiedWhenRunningThisContainer
+ENV CRYPTOMATOR_VERSION=1.1.2 \
+	BINTRAY_API_KEY=toBeSpecifiedWhenRunningThisContainer \
+	GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
 # Build and upload RPM package
 CMD cd /home \
@@ -44,4 +45,5 @@ CMD cd /home \
 	&& curl -T antbuild/bundles/cryptomator-*.rpm -ucryptobot:${BINTRAY_API_KEY} \
 		-H "X-Bintray-Package:cryptomator" \
 		-H "X-Bintray-Version:${CRYPTOMATOR_VERSION}" \
+		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
 		https://api.bintray.com/content/cryptomator/cryptomator-rpm/cryptomator-${CRYPTOMATOR_VERSION}-amd64.rpm
