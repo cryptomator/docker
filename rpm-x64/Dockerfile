@@ -31,7 +31,7 @@ RUN cd /tmp \
 	&& rm ant.tar.gz \
 	&& ln -s /usr/local/ant/bin/ant /usr/local/bin/ant
 
-ENV CRYPTOMATOR_VERSION=1.1.2 \
+ENV CRYPTOMATOR_VERSION=1.1.3 \
 	BINTRAY_API_KEY=toBeSpecifiedWhenRunningThisContainer \
 	GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
@@ -42,8 +42,13 @@ CMD cd /home \
 	&& export JAVA_HOME="/usr/lib/jvm/${JDK_FULL_VERSION}" \
 	&& export ANT_HOME="/usr/local/ant" \
 	&& ant rpm \
-	&& curl -T antbuild/bundles/cryptomator-*.rpm -ucryptobot:${BINTRAY_API_KEY} \
+	&& curl -T antbuild/bundles/cryptomator-*.rpm -u cryptobot:${BINTRAY_API_KEY} \
 		-H "X-Bintray-Package:cryptomator" \
 		-H "X-Bintray-Version:${CRYPTOMATOR_VERSION}" \
+		https://api.bintray.com/content/cryptomator/cryptomator-rpm/cryptomator-${CRYPTOMATOR_VERSION}-amd64.rpm \
+	&& curl -X POST -u cryptobot:${BINTRAY_API_KEY} \
 		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
-		https://api.bintray.com/content/cryptomator/cryptomator-rpm/cryptomator-${CRYPTOMATOR_VERSION}-amd64.rpm
+		https://api.bintray.com/gpg/cryptomator/cryptomator-rpm/cryptomator-${CRYPTOMATOR_VERSION}-amd64.rpm \
+	&& curl -X POST -u cryptobot:${BINTRAY_API_KEY} \
+		-H “X-GPG-PASSPHRASE:${GPG_PASSPHRASE} \
+		https://api.bintray.com/calc_metadata/cryptomator/cryptomator-rpm/
