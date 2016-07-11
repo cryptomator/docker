@@ -20,5 +20,5 @@ CMD cd /home \
 		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
 		https://api.bintray.com/gpg/cryptomator/cryptomator-rpm/cryptomator-${CRYPTOMATOR_VERSION}-amd64.rpm \
 	&& curl -X POST -u cryptobot:${BINTRAY_API_KEY} \
-		-H “X-GPG-PASSPHRASE:${GPG_PASSPHRASE} \
+		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
 		https://api.bintray.com/calc_metadata/cryptomator/cryptomator-rpm/
