@@ -1,7 +1,7 @@
 FROM cryptomator/debian-jdk-ant-x64
 MAINTAINER sebastian.stenzel@cryptomator.org
 
-ENV CRYPTOMATOR_VERSION=1.1.3 \
+ENV CRYPTOMATOR_VERSION=1.1.4 \
 	BINTRAY_API_KEY=toBeSpecifiedWhenRunningThisContainer \
 	GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
@@ -9,8 +9,6 @@ ENV CRYPTOMATOR_VERSION=1.1.3 \
 CMD cd /home \
 	&& curl -L https://github.com/cryptomator/cryptomator/releases/download/${CRYPTOMATOR_VERSION}/antkit.tar.gz -o antkit.tar.gz \
 	&& tar -xzf antkit.tar.gz \
-	&& export JAVA_HOME="/usr/lib/jvm/${JDK_FULL_VERSION}" \
-	&& export ANT_HOME="/usr/local/ant" \
 	&& ant deb \
 	&& curl -T antbuild/bundles/cryptomator-*.deb -u cryptobot:${BINTRAY_API_KEY} \
 		-H "X-Bintray-Package:cryptomator" \
