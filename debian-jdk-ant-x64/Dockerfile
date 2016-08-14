@@ -1,19 +1,16 @@
 FROM debian:7
 MAINTAINER sebastian.stenzel@cryptomator.org
 
-LABEL version="1.8.0_102"
-
 ENV LANG=en_US.UTF-8 \
 	LANGUAGE=en_US.UTF-8 \
 	LC_COLLATE=C \
 	LC_CTYPE=en_US.UTF-8 \
 	JDK_FULL_VERSION="jdk1.8.0_102" \
+	JAVA_HOME="/usr/lib/jvm/jdk1.8.0_102" \
 	JDK_DOWNLOAD_URL="http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.tar.gz" \
 	JCE_POLICY_URL="http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip" \
-	ANT_DOWNLOAD_URL="http://mirrors.ae-online.de/apache/ant/binaries/apache-ant-1.9.7-bin.tar.gz" \
-	JAVA_INSTALL_DIR="/usr/lib/jvm" \
-	JAVA_HOME="${JAVA_INSTALL_DIR}/${JDK_FULL_VERSION}" \
-	ANT_HOME="/usr/local/ant"
+	ANT_HOME="/usr/local/ant" \
+	ANT_DOWNLOAD_URL="http://mirrors.ae-online.de/apache/ant/binaries/apache-ant-1.9.7-bin.tar.gz"
 
 # Install Build Dependencies
 RUN apt-get update \
@@ -21,8 +18,8 @@ RUN apt-get update \
 	&& apt-get clean
 RUN cd /tmp \
 	&& curl -L --cookie 'oraclelicense=accept-securebackup-cookie;' ${JDK_DOWNLOAD_URL} -o jdk.tar.gz \
-	&& mkdir -p ${JAVA_INSTALL_DIR} \
-	&& tar -xzf jdk.tar.gz -C ${JAVA_INSTALL_DIR} \
+	&& mkdir -p `dirname ${JAVA_HOME}` \
+	&& tar -xzf jdk.tar.gz -C `dirname ${JAVA_HOME}` \
 	&& rm jdk.tar.gz
 RUN cd /tmp \
 	&& curl -L --cookie 'oraclelicense=accept-securebackup-cookie;' ${JCE_POLICY_URL} -o jce-policy.zip \
