@@ -23,6 +23,3 @@ ENV CRYPTOMATOR_VERSION=1.1.4 \
 # create debian source package
 CMD cd /var/build \
   && bash /var/build/build.sh
-
-# expose result directory
-VOLUME /var/build/dist

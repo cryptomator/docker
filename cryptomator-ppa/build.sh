@@ -42,7 +42,5 @@ sed -i -e "s/${DSC_SHA256_ORIG} ${DSC_SIZE_ORIG}/${DSC_SHA256_NEW} ${DSC_SIZE_NE
 gpg --clearsign --no-tty --passphrase ${GPG_PASSPHRASE} --output cryptomator_${CRYPTOMATOR_FULL_VERSION}_source.changes.gpg cryptomator_${CRYPTOMATOR_FULL_VERSION}_source.changes
 mv cryptomator_${CRYPTOMATOR_FULL_VERSION}_source.changes.gpg cryptomator_${CRYPTOMATOR_FULL_VERSION}_source.changes
 
-cp * /var/build/dist
-
 # upload
-dput -ol ppa:sebastian-stenzel/cryptomator cryptomator_${CRYPTOMATOR_FULL_VERSION}_source.changes
+dput ppa:sebastian-stenzel/cryptomator cryptomator_${CRYPTOMATOR_FULL_VERSION}_source.changes
