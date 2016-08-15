@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	rm -rf $(CURDIR)/antbuild
+
+override_dh_auto_build:
+	ant create-jar
+
+override_dh_usrlocal:
+	# no-op

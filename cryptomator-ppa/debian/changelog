@@ -1,0 +1,5 @@
+cryptomator (##CRYPTOMATOR_FULL_VERSION##) xenial; urgency=low
+
+  * New release, full changelog available on https://github.com/cryptomator/cryptomator/releases
+
+ -- Sebastian Stenzel <sebastian.stenzel@gmail.com>  ##RFC2822_TIMESTAMP##
