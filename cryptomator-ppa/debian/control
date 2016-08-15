@@ -12,7 +12,7 @@ Package: cryptomator
 Architecture: all
 Section: contrib/utils
 Priority: optional
-Depends: ${misc:Depends}, gvfs-bin, gvfs-backends, gvfs-fuse, openjdk-8-jre (>= 8u45-b14), openjfx (>= 8u40-b25)
+Depends: ${misc:Depends}, gvfs-bin, gvfs-backends, gvfs-fuse, xdg-utils, openjdk-8-jre (>= 8u45-b14), openjfx (>= 8u40-b25)
 Conflicts: cryptomator
 Homepage: https://cryptomator.org
 Description: Multi-platform client-side encryption of your cloud files.

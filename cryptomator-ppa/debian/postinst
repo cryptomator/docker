@@ -20,7 +20,9 @@ set -e
 case "$1" in
     configure)
         echo Adding shortcut to the menu
-
+        if [ ! -d "/usr/share/desktop-directories" ] then
+          mkdir -p /usr/share/desktop-directories
+        fi
         xdg-desktop-menu install --novendor /usr/share/applications/Cryptomator.desktop
         xdg-mime install /usr/share/mime/packages/cryptomator-vault.xml
     ;;

@@ -10,6 +10,7 @@ cd /var/build/cryptomator_${CRYPTOMATOR_VERSION}
 # substitute variables
 RFC2822_TIMESTAMP=`date --rfc-2822`
 sed -i -e "s/##CRYPTOMATOR_VERSION##/${CRYPTOMATOR_VERSION}/g" debian/Cryptomator.desktop
+sed -i -e "s/##CRYPTOMATOR_VERSION##/${CRYPTOMATOR_VERSION}/g" debian/cryptomator.sh
 sed -i -e "s/##CRYPTOMATOR_FULL_VERSION##/${CRYPTOMATOR_FULL_VERSION}/g" debian/changelog
 sed -i -e "s/##RFC2822_TIMESTAMP##/${RFC2822_TIMESTAMP}/g" debian/changelog
 sed -i -e "s/##CRYPTOMATOR_FULL_VERSION##/${CRYPTOMATOR_FULL_VERSION}/g" debian/files
