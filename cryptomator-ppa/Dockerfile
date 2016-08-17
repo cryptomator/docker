@@ -17,7 +17,7 @@ COPY build.sh /var/build/
 COPY debian /var/build/debian/
 
 ENV CRYPTOMATOR_VERSION=1.1.4 \
-  CRYPTOMATOR_FULL_VERSION=1.1.4-0ppa5 \
+  CRYPTOMATOR_FULL_VERSION=1.1.4-0ppa7 \
   GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
 # create debian source package
