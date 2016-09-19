@@ -17,4 +17,10 @@ CMD cd /home \
 		-H "X-Bintray-Debian-Component:contrib" \
 		-H "X-Bintray-Debian-Architecture:amd64" \
 		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
-		https://api.bintray.com/content/cryptomator/cryptomator-deb/cryptomator-${CRYPTOMATOR_VERSION}-amd64.deb
+		https://api.bintray.com/content/cryptomator/cryptomator-deb/cryptomator-${CRYPTOMATOR_VERSION}-amd64.deb \
+	&& curl -X POST -u cryptobot:${BINTRAY_API_KEY} \
+		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
+		https://api.bintray.com/gpg/cryptomator/cryptomator-deb/cryptomator-${CRYPTOMATOR_VERSION}-amd64.deb \
+	&& curl -X POST -u cryptobot:${BINTRAY_API_KEY} \
+		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
+		https://api.bintray.com/calc_metadata/cryptomator/cryptomator-deb/

@@ -14,4 +14,10 @@ CMD cd /home \
 		-H "X-Bintray-Package:cryptomator" \
 		-H "X-Bintray-Version:${CRYPTOMATOR_VERSION}" \
 		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
-		https://api.bintray.com/content/cryptomator/cryptomator-rpm/cryptomator-${CRYPTOMATOR_VERSION}-amd64.rpm
+		https://api.bintray.com/content/cryptomator/cryptomator-rpm/cryptomator-${CRYPTOMATOR_VERSION}-amd64.rpm \
+	&& curl -X POST -u cryptobot:${BINTRAY_API_KEY} \
+		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
+		https://api.bintray.com/gpg/cryptomator/cryptomator-rpm/cryptomator-${CRYPTOMATOR_VERSION}-amd64.rpm \
+	&& curl -X POST -u cryptobot:${BINTRAY_API_KEY} \
+		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
+		https://api.bintray.com/calc_metadata/cryptomator/cryptomator-rpm/
