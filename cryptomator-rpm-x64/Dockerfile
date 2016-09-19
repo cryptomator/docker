@@ -1,7 +1,7 @@
 FROM cryptomator/centos-jdk-ant-x64
 MAINTAINER sebastian.stenzel@cryptomator.org
 
-ENV CRYPTOMATOR_VERSION=1.1.4 \
+ENV CRYPTOMATOR_VERSION=1.2.0 \
 	BINTRAY_API_KEY=toBeSpecifiedWhenRunningThisContainer \
 	GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
@@ -13,10 +13,5 @@ CMD cd /home \
 	&& curl -T antbuild/bundles/cryptomator-*.rpm -u cryptobot:${BINTRAY_API_KEY} \
 		-H "X-Bintray-Package:cryptomator" \
 		-H "X-Bintray-Version:${CRYPTOMATOR_VERSION}" \
-		https://api.bintray.com/content/cryptomator/cryptomator-rpm/cryptomator-${CRYPTOMATOR_VERSION}-amd64.rpm \
-	&& curl -X POST -u cryptobot:${BINTRAY_API_KEY} \
 		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
-		https://api.bintray.com/gpg/cryptomator/cryptomator-rpm/cryptomator-${CRYPTOMATOR_VERSION}-amd64.rpm \
-	&& curl -X POST -u cryptobot:${BINTRAY_API_KEY} \
-		-H "X-GPG-PASSPHRASE:${GPG_PASSPHRASE}" \
-		https://api.bintray.com/calc_metadata/cryptomator/cryptomator-rpm/
+		https://api.bintray.com/content/cryptomator/cryptomator-rpm/cryptomator-${CRYPTOMATOR_VERSION}-amd64.rpm
