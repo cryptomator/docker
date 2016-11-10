@@ -1,7 +1,7 @@
 FROM cryptomator/debian-jdk-ant-x64
 MAINTAINER sebastian.stenzel@cryptomator.org
 
-ENV CRYPTOMATOR_VERSION=1.2.0 \
+ENV CRYPTOMATOR_VERSION=1.2.1 \
 	BINTRAY_API_KEY=toBeSpecifiedWhenRunningThisContainer \
 	GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
