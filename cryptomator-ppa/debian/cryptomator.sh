@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 java \
   -Xmx512m \
   -Dcryptomator.logPath=~/.Cryptomator/cryptomator.log \
