@@ -1,7 +1,7 @@
 FROM cryptomator/centos-jdk-ant-x64
 MAINTAINER sebastian.stenzel@cryptomator.org
 
-ENV CRYPTOMATOR_VERSION=1.2.2 \
+ENV CRYPTOMATOR_VERSION=1.3.0-rc1 \
 	BINTRAY_API_KEY=toBeSpecifiedWhenRunningThisContainer \
 	GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
