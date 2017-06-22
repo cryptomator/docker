@@ -5,12 +5,12 @@ ENV LANG=en_US.UTF-8 \
 	LANGUAGE=en_US.UTF-8 \
 	LC_COLLATE=C \
 	LC_CTYPE=en_US.UTF-8 \
-	JDK_FULL_VERSION="jdk1.8.0_112" \
-	JAVA_HOME="/usr/lib/jvm/jdk1.8.0_112" \
-	JDK_DOWNLOAD_URL="http://download.oracle.com/otn-pub/java/jdk/8u112-b15/jdk-8u112-linux-x64.tar.gz" \
+	JDK_FULL_VERSION="jdk1.8.0_131" \
+	JAVA_HOME="/usr/lib/jvm/jdk1.8.0_131" \
+	JDK_DOWNLOAD_URL="http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz" \
 	JCE_POLICY_URL="http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip" \
 	ANT_HOME="/usr/local/ant" \
-	ANT_DOWNLOAD_URL="http://mirrors.ae-online.de/apache/ant/binaries/apache-ant-1.9.7-bin.tar.gz"
+	ANT_DOWNLOAD_URL="http://mirror.netcologne.de/apache.org//ant/binaries/apache-ant-1.10.1-bin.tar.gz"
 
 # Install Build Dependencies
 RUN apt-get update \

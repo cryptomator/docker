@@ -10,7 +10,7 @@ ENV LANG=en_US.UTF-8 \
 	JDK_DOWNLOAD_URL="http://download.oracle.com/otn-pub/java/jdk/8u112-b15/jdk-8u112-linux-i586.tar.gz" \
 	JCE_POLICY_URL="http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip" \
 	ANT_HOME="/usr/local/ant" \
-	ANT_DOWNLOAD_URL="http://mirrors.ae-online.de/apache/ant/binaries/apache-ant-1.9.7-bin.tar.gz"
+	ANT_DOWNLOAD_URL="http://mirror.netcologne.de/apache.org//ant/binaries/apache-ant-1.10.1-bin.tar.gz"
 
 # Install Build Dependencies
 RUN yum makecache \
