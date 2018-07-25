@@ -1,5 +1,5 @@
-cryptomator (##CRYPTOMATOR_FULL_VERSION##) xenial; urgency=low
+cryptomator (##PPA_VERSION##) bionic; urgency=low
 
-  * New release, full changelog available on https://github.com/cryptomator/cryptomator/releases
+  * Full changelog can be found on https://github.com/cryptomator/cryptomator/releases
 
  -- Sebastian Stenzel <sebastian.stenzel@gmail.com>  ##RFC2822_TIMESTAMP##

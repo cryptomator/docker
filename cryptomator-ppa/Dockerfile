@@ -16,8 +16,9 @@ RUN gpg --import /tmp/A8240A09.asc
 COPY build.sh /var/build/
 COPY debian /var/build/debian/
 
-ENV CRYPTOMATOR_VERSION=1.2.1 \
-  CRYPTOMATOR_FULL_VERSION=1.2.1-0ppa1 \
+ENV APPIMG_VERSION=1.4.0-beta2 \
+  PACKAGE_VERSION=1.3.0+1.4.0.beta2 \
+	PPA_VERSION=1.3.0+1.4.0.beta2-0ppa2 \
   GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
 # create debian source package
