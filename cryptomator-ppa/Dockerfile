@@ -16,9 +16,9 @@ RUN gpg --import /tmp/A8240A09.asc
 COPY build.sh /var/build/
 COPY debian /var/build/debian/
 
-ENV APPIMG_VERSION=1.4.0-beta2 \
-  PACKAGE_VERSION=1.3.0+1.4.0.beta2 \
-	PPA_VERSION=1.3.0+1.4.0.beta2-0ppa2 \
+ENV APPIMG_VERSION=1.4.6 \
+  PACKAGE_VERSION=1.4.6 \
+	PPA_VERSION=1.4.6-0ppa1 \
   GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
 # create debian source package
