@@ -1,1 +1,1 @@
-/usr/lib/cryptomator/cryptomator-##APPIMG_VERSION##-x86_64.AppImage /usr/bin/cryptomator
+/opt/cryptomator/bin/cryptomator /usr/bin/cryptomator

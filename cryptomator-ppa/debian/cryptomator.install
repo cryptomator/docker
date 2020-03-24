@@ -1,4 +1,6 @@
-cryptomator-*-x86_64.AppImage usr/lib/cryptomator
-debian/Cryptomator.png usr/share/cryptomator
-debian/Cryptomator.desktop usr/share/applications
+cryptomator opt
+debian/org.cryptomator.Cryptomator.desktop usr/share/applications
+debian/org.cryptomator.Cryptomator.svg usr/share/icons/hicolor/scalable/apps
+debian/org.cryptomator.Cryptomator.png usr/share/icons/hicolor/512x512/apps
+debian/org.cryptomator.Cryptomator.appdata.xml usr/share/metainfo
 debian/cryptomator-vault.xml usr/share/mime/packages

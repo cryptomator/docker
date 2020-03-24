@@ -21,7 +21,7 @@ case "$1" in
     remove|upgrade|deconfigure)
         echo Removing shortcut
 
-        xdg-desktop-menu uninstall --novendor /usr/share/applications/Cryptomator.desktop
+        xdg-desktop-menu uninstall --novendor /usr/share/applications/org.cryptomator.Cryptomator.desktop
         xdg-mime uninstall /usr/share/mime/packages/cryptomator-vault.xml
     ;;
 

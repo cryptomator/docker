@@ -1,20 +1,24 @@
 #!/bin/bash
 
+# cleanup
+rm cryptomator-linux.zip
+rm -rf cryptomator_*
+
 # download and prepare sources
-mkdir cryptomator_${PACKAGE_VERSION}
-curl -o cryptomator-${APPIMG_VERSION}-x86_64.AppImage -L https://dl.bintray.com/cryptomator/cryptomator/${APPIMG_VERSION}/cryptomator-${APPIMG_VERSION}-x86_64.AppImage
-tar -czf cryptomator_${PACKAGE_VERSION}.orig.tar.gz cryptomator-${APPIMG_VERSION}-x86_64.AppImage
-cp cryptomator-${APPIMG_VERSION}-x86_64.AppImage cryptomator_${PACKAGE_VERSION}/
+curl -o buildkit-linux.zip -L http://dl.bintray.com/cryptomator/cryptomator/${BUILDKIT_VERSION}/buildkit-linux.zip
+unzip buildkit-linux.zip -d cryptomator_${PACKAGE_VERSION}
+mk-origtargz --repack --package=cryptomator --version=${PACKAGE_VERSION} buildkit-linux.zip
 cp -r debian cryptomator_${PACKAGE_VERSION}/debian
 pushd cryptomator_${PACKAGE_VERSION}
 
 # substitute variables
 RFC2822_TIMESTAMP=`date --rfc-2822`
-sed -i -e "s/##PACKAGE_VERSION##/${PACKAGE_VERSION}/g" debian/Cryptomator.desktop
+LAUNCHER_VERSION=`cat libs/version.txt`
+sed -i -e "s/##PACKAGE_VERSION##/${PACKAGE_VERSION}/g" debian/org.cryptomator.Cryptomator.desktop
 sed -i -e "s/##PPA_VERSION##/${PPA_VERSION}/g" debian/changelog
 sed -i -e "s/##RFC2822_TIMESTAMP##/${RFC2822_TIMESTAMP}/g" debian/changelog
-sed -i -e "s/##APPIMG_VERSION##/${APPIMG_VERSION}/g" debian/cryptomator.links
-sed -i -e "s/##APPIMG_VERSION##/${APPIMG_VERSION}/g" debian/source/include-binaries
+sed -i -e "s/%LAUNCHER_VERSION%/${LAUNCHER_VERSION}/g" debian/rules
+ls -1d libs/*.jar >> debian/source/include-binaries
 
 # build source package
 if [[ ${PPA_VERSION} =~ .*ppa1$ ]]
@@ -45,4 +49,4 @@ gpg --clearsign --no-tty --passphrase ${GPG_PASSPHRASE} --output cryptomator_${P
 mv cryptomator_${PPA_VERSION}_source.changes.gpg cryptomator_${PPA_VERSION}_source.changes
 
 # upload
-dput ppa:sebastian-stenzel/cryptomator cryptomator_${PPA_VERSION}_source.changes
+#dput ppa:sebastian-stenzel/cryptomator cryptomator_${PPA_VERSION}_source.changes

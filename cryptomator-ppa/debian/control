@@ -2,7 +2,7 @@ Source: cryptomator
 Maintainer: Sebastian Stenzel <sebastian.stenzel@gmail.com>
 Section: utils
 Priority: optional
-Build-Depends: debhelper (>=10)
+Build-Depends: debhelper (>=10), openjdk-14-jdk-headless
 Standards-Version: 4.0.0
 Homepage: https://cryptomator.org
 Vcs-Git: https://github.com/cryptomator/cryptomator.git
@@ -12,9 +12,10 @@ Package: cryptomator
 Architecture: any
 Section: utils
 Priority: optional
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: gvfs-bin, gvfs-backends, gvfs-fuse, xdg-utils
-Conflicts: cryptomator
+Depends: ${shlibs:Depends}, ${misc:Depends}, libfuse2, xdg-utils
+Recommends: gvfs-backends, gvfs-fuse, gnome-keyring
+XB-AppName: Cryptomator
+XB-Category: Utility;Security;FileTools;
 Homepage: https://cryptomator.org
 Description: Multi-platform client-side encryption of your cloud files.
  Cryptomator provides free client-side AES encryption for your cloud files.

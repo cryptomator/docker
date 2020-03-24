@@ -3,13 +3,43 @@
 
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
+export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 
 %:
 	dh $@
 
+override_dh_auto_clean:
+	rm -rf runtimeImage
+	rm -rf debian/cryptomator
+
+override_dh_auto_build:
+	${JAVA_HOME}/bin/jlink \
+		--output runtimeImage \
+		--no-header-files \
+		--no-man-pages \
+		--strip-debug \
+		--compress=2 \
+		--verbose \
+		--add-modules java.base,java.logging,java.xml,java.sql,java.management,java.security.sasl,java.naming,java.datatransfer,java.security.jgss,java.rmi,java.scripting,java.prefs,java.desktop,jdk.security.auth,jdk.unsupported,java.net.http,jdk.crypto.ec
+	${JAVA_HOME}/bin/jpackage \
+		--type app-image \
+		--input libs \
+		--main-jar launcher-%LAUNCHER_VERSION%.jar \
+		--main-class org.cryptomator.launcher.Cryptomator \
+		--runtime-image runtimeImage \
+		--app-version %LAUNCHER_VERSION% \
+		--java-options "-Dcryptomator.logDir=\"~/.local/share/Cryptomator/logs\"" \
+		--java-options "-Dcryptomator.settingsPath=\"~/.config/Cryptomator/settings.json:~/.Cryptomator/settings.json\"" \
+		--java-options "-Dcryptomator.ipcPortPath=\"~/.config/Cryptomator/ipcPort.bin:~/.Cryptomator/ipcPort.bin\"" \
+		--java-options "-Dcryptomator.mountPointsDir=\"~/.local/share/Cryptomator/mnt\"" \
+		--java-options "-Xss2m" \
+		--java-options "-Xmx512m" \
+		--name cryptomator \
+		--dest . \
+		--verbose
+
 override_dh_fixperms:
 	dh_fixperms
-	chmod a+x debian/cryptomator/usr/lib/cryptomator/cryptomator-*.AppImage
 
-override_dh_strip:
+# override_dh_strip:
 	# no-op
