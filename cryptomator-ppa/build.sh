@@ -30,7 +30,7 @@ DSC_SIZE_ORIG=`wc -c < cryptomator_${PPA_VERSION}.dsc`
 DSC_MD5_ORIG=`md5sum cryptomator_${PPA_VERSION}.dsc | cut -d' ' -f1`
 DSC_SHA1_ORIG=`sha1sum cryptomator_${PPA_VERSION}.dsc | cut -d' ' -f1`
 DSC_SHA256_ORIG=`sha256sum cryptomator_${PPA_VERSION}.dsc | cut -d' ' -f1`
-gpg --clearsign --no-tty --passphrase ${GPG_PASSPHRASE} --output cryptomator_${PPA_VERSION}.dsc.gpg cryptomator_${PPA_VERSION}.dsc
+echo ${GPG_PASSPHRASE} | gpg --clearsign --batch --quiet --no-tty --pinentry-mode=loopback --passphrase-fd 0 --output cryptomator_${PPA_VERSION}.dsc.gpg cryptomator_${PPA_VERSION}.dsc
 mv cryptomator_${PPA_VERSION}.dsc.gpg cryptomator_${PPA_VERSION}.dsc
 DSC_SIZE_NEW=`wc -c < cryptomator_${PPA_VERSION}.dsc | cut -d' ' -f1`
 DSC_MD5_NEW=`md5sum cryptomator_${PPA_VERSION}.dsc | cut -d' ' -f1`
