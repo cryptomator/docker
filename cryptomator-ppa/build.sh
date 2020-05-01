@@ -10,7 +10,7 @@ pushd cryptomator_${PACKAGE_VERSION}
 
 # substitute variables
 RFC2822_TIMESTAMP=`date --rfc-2822`
-sed -i -e "s/##PACKAGE_VERSION##/${PACKAGE_VERSION}/g" debian/Cryptomator.desktop
+sed -i -e "s/##PACKAGE_VERSION##/${PACKAGE_VERSION}/g" debian/org.cryptomator.Cryptomator.desktop
 sed -i -e "s/##PPA_VERSION##/${PPA_VERSION}/g" debian/changelog
 sed -i -e "s/##RFC2822_TIMESTAMP##/${RFC2822_TIMESTAMP}/g" debian/changelog
 sed -i -e "s/##APPIMG_VERSION##/${APPIMG_VERSION}/g" debian/cryptomator.links

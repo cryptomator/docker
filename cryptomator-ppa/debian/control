@@ -15,6 +15,8 @@ Priority: optional
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: gvfs-bin, gvfs-backends, gvfs-fuse, xdg-utils
 Conflicts: cryptomator
+XB-AppName: Cryptomator
+XB-Category: Utility;Security;FileTools;
 Homepage: https://cryptomator.org
 Description: Multi-platform client-side encryption of your cloud files.
  Cryptomator provides free client-side AES encryption for your cloud files.

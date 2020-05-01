@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:focal
 MAINTAINER sebastian.stenzel@cryptomator.org
 
 ENV LANG=C.UTF-8
@@ -16,11 +16,11 @@ RUN gpg --import /tmp/A8240A09.asc
 COPY build.sh /var/build/
 COPY debian /var/build/debian/
 
-ENV APPIMG_VERSION=1.4.6 \
-  PACKAGE_VERSION=1.4.6 \
-	PPA_VERSION=1.4.6-0ppa1 \
-  GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
+ENV BUILDKIT_VERSION=1.5.0-rc1
+	PACKAGE_VERSION=1.5.0~rc1 \
+	PPA_VERSION=1.5.0~rc1-0ppa1 \
+	GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
 # create debian source package
 CMD cd /var/build \
-  && bash /var/build/build.sh
+	&& bash /var/build/build.sh
