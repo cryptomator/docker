@@ -5,7 +5,7 @@ rm cryptomator-linux.zip
 rm -rf cryptomator_*
 
 # download and prepare sources
-curl -o buildkit-linux.zip -L http://dl.bintray.com/cryptomator/cryptomator/${BUILDKIT_VERSION}/buildkit-linux.zip
+curl -o buildkit-linux.zip -L https://github.com/cryptomator/cryptomator/releases/download/${BUILDKIT_VERSION}/buildkit-linux.zip
 unzip buildkit-linux.zip -d cryptomator_${PACKAGE_VERSION}
 mk-origtargz --repack --package=cryptomator --version=${PACKAGE_VERSION} buildkit-linux.zip
 cp -r debian cryptomator_${PACKAGE_VERSION}/debian
