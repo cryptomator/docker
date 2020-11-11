@@ -49,4 +49,4 @@ echo ${GPG_PASSPHRASE} | gpg --clearsign --batch --quiet --no-tty --pinentry-mod
 mv cryptomator_${PPA_VERSION}_source.changes.gpg cryptomator_${PPA_VERSION}_source.changes
 
 # upload
-#dput ppa:sebastian-stenzel/cryptomator cryptomator_${PPA_VERSION}_source.changes
+dput ppa:sebastian-stenzel/cryptomator-beta cryptomator_${PPA_VERSION}_source.changes
