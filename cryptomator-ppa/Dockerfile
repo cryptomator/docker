@@ -6,7 +6,7 @@ ENV LANG=C.UTF-8
 # Install Build Dependencies
 RUN export DEBIAN_FRONTEND=noninteractive \
 	&& apt-get update \
-	&& apt-get -y --no-install-recommends install curl ca-certificates debhelper devscripts build-essential fakeroot dput \
+	&& apt-get -y --no-install-recommends install curl ca-certificates debhelper devscripts build-essential fakeroot dput unzip openjdk-15-jdk \
 	&& apt-get clean
 
 # import gpg key
