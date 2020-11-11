@@ -17,7 +17,7 @@ RUN gpg -v --batch --import /tmp/A8240A09.asc
 COPY build.sh /var/build/
 COPY debian /var/build/debian/
 
-ENV BUILDKIT_VERSION=1.5.9-beta1
+ENV BUILDKIT_VERSION=1.5.9-beta1 \
 	PACKAGE_VERSION=1.5.9~beta1 \
 	PPA_VERSION=1.5.9~beta1-0ppa1 \
 	GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer

@@ -1,9 +1,0 @@
- dpkg-buildpackage -rfakeroot -us -uc -ui -S -sa
-dpkg-buildpackage: warning:     debian/changelog(l1): version '##PPA_VERSION##' is invalid: version number does not start with digit
-LINE: cryptomator (##PPA_VERSION##) bionic; urgency=low
-dpkg-buildpackage: warning:     debian/changelog(l5): badly formatted trailer line
-LINE:  -- Sebastian Stenzel <sebastian.stenzel@gmail.com>  ##RFC2822_TIMESTAMP##
-dpkg-buildpackage: warning:     debian/changelog(l5): found end of file where expected more change data or trailer
-dpkg-buildpackage: error: version number does not start with digit
-dpkg-buildpackage: info: source package cryptomator
-dpkg-buildpackage: info: source version unknown
