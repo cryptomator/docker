@@ -2,7 +2,7 @@
 
 # download and prepare sources
 mkdir cryptomator_${PACKAGE_VERSION}
-curl -o cryptomator-${APPIMG_VERSION}-x86_64.AppImage -L https://dl.bintray.com/cryptomator/cryptomator/${APPIMG_VERSION}/cryptomator-${APPIMG_VERSION}-x86_64.AppImage
+curl -o cryptomator-${APPIMG_VERSION}-x86_64.AppImage -L ${APPIMG_URL}
 tar -czf cryptomator_${PACKAGE_VERSION}.orig.tar.gz cryptomator-${APPIMG_VERSION}-x86_64.AppImage
 cp cryptomator-${APPIMG_VERSION}-x86_64.AppImage cryptomator_${PACKAGE_VERSION}/
 cp -r debian cryptomator_${PACKAGE_VERSION}/debian

@@ -1,5 +1,5 @@
 FROM ubuntu:focal
-MAINTAINER sebastian.stenzel@cryptomator.org
+LABEL maintainer="sebastian.stenzel@cryptomator.org"
 
 ENV LANG=C.UTF-8
 
@@ -17,9 +17,10 @@ RUN gpg -v --batch --import /tmp/A8240A09.asc
 COPY build.sh /var/build/
 COPY debian /var/build/debian/
 
-ENV BUILDKIT_VERSION=1.5.3 \
-	PACKAGE_VERSION=1.5.3 \
-	PPA_VERSION=1.5.3-0ppa1 \
+ENV APPIMG_VERSION=1.5.14 \
+	PACKAGE_VERSION=1.5.14 \
+	PPA_VERSION=1.5.14-0ppa1 \
+	APPIMG_URL=https://github.com/cryptomator/cryptomator/releases/download/1.5.14/cryptomator-1.5.14-x86_64.AppImage \
 	GPG_PASSPHRASE=toBeSpecifiedWhenRunningThisContainer
 
 # create debian source package
